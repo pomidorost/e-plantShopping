@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-
 import { useDispatch } from "react-redux";
-import { addItem } from "../redux/CartSlice";
+import { addItem } from "./CartSlice";
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
@@ -244,12 +243,12 @@ function ProductList({ onHomeClick }) {
 
     const handleCartClick = (e) => {
         e.preventDefault();
-        setShowCart(true); // Set showCart to true when cart icon is clicked
+        setShowCart(true); 
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
-        setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
-        setShowCart(false); // Hide the cart when navigating to About Us
+        setShowPlants(true); 
+        setShowCart(false); 
     };
 
     const handleContinueShopping = (e) => {
@@ -262,11 +261,11 @@ const calculateTotalQuantity = () => {
   };
 
 const handleAddToCart = (product) => {
-  dispatch(addItem(product)); // Dispatch the action to add the product to the cart (Redux action)
+  dispatch(addItem(product)); 
 
-  setAddedToCart((prevState) => ({ // Update the local state to reflect that the product has been added
-    ...prevState, // Spread the previous state to retain existing entries
-    [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
+  setAddedToCart((prevState) => ({ 
+    ...prevState, 
+    [product.name]: true, 
   }));
 };
 
